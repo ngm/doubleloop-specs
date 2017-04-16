@@ -15,3 +15,6 @@ echo "### Copying images from debug ###"
 mkdir docs/images
 cp -R tests/_output/debug/*.png docs/images/
 
+echo "### Copying report from debug ###"
+cp -R tests/_output/report.html docs/
+
