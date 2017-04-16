@@ -1,4 +1,4 @@
-Feature: POSSEing a note to Twitter
+Feature: B.3.1 - POSSEing a note to Twitter
 
 ----
 

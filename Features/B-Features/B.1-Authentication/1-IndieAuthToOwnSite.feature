@@ -1,4 +1,4 @@
-Feature: IndieAuth to own site
+Feature: B.1.1 - IndieAuth to own site
 
 ----
 

@@ -1,4 +1,4 @@
-Feature: B.1.2 IndieAuth to other sites
+Feature: B.1.2 - IndieAuth to other sites
 
 IndieAuth allows you to authenticate into websites by linking
 an existing authentication provider to your domain.
