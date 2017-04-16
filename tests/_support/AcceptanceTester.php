@@ -55,4 +55,28 @@ class AcceptanceTester extends \Codeception\Actor
     {
         throw new \Codeception\Exception\Incomplete("Step `it is marked up correctly as a note` is not defined");
     }
+
+    /**
+     * @Given I am browsing my website
+     */
+    public function iAmBrowsingMyWebsite()
+    {
+    }
+
+    /**
+     * @When I navigate to :page
+     */
+    public function iNavigateTomentions($page)
+    {
+        $this->amOnPage($page);
+    }
+
+    /**
+     * @Then I should see a list of my mentions
+     */
+    public function iShouldSeeAListOfMyMentions()
+    {
+        $this->see('mentions');
+        $this->makeScreenshot("mentions");
+    }
 }

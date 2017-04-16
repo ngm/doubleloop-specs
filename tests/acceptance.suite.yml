@@ -19,3 +19,4 @@ modules:
             adminUsername: tester
             adminPassword: p4ssw0rd!
             adminUrl: /wp-admin
+            window_size: maximize
