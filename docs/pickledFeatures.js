@@ -276,7 +276,7 @@ jsonPWrapper ({
       "RelativeFolder": "A-Overview/3-Capabilities.feature",
       "Feature": {
         "Name": "A.3 - Capabilities",
-        "Description": "* POSSE\n* Micropub\n* Webmention\n* Backfeed\n* etc - read through some of indieweb.org for more features (make sure they align with goals)",
+        "Description": "See: \n[/building-blocks](http://indieweb.org/building-blocks),\n[/IndieMark](https://indieweb.org/IndieMark),\n[indiewebify.me](https://indiewebify.me/).\n\n* POSSE\n* Micropub\n* Webmention\n* Backfeed",
         "FeatureElements": [],
         "Result": {
           "WasExecuted": false,
@@ -499,6 +499,6 @@ jsonPWrapper ({
   },
   "Configuration": {
     "SutName": "doubleloop.net",
-    "GeneratedOn": "16 April 2017 22:59:32"
+    "GeneratedOn": "16 April 2017 23:30:30"
   }
 });
