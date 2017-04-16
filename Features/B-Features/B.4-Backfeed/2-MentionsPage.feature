@@ -10,9 +10,11 @@ I want to have a page that contains all of my @-mentions.
 
 ----
 
+A *mentions* page lists webmentions sent to a website. 
+
 See: [indieweb.org/mentions](https://indieweb.org/mentions).
 
-![](/home/neil/Code/doubleloop-specs/tests/_output/debug/mentions.png)
+![](./images/mentions.png)
 
 Scenario: Navigating to mentions page
   Given I am browsing my website

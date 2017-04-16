@@ -21,7 +21,7 @@ jsonPWrapper ({
       "RelativeFolder": "B-Features/B.4-Backfeed/2-MentionsPage.feature",
       "Feature": {
         "Name": "B.4.2 - Mentions Page",
-        "Description": "----\n\nIn order to easily see when people have mentioned me\n\nAs an IndieWebber\n\nI want to have a page that contains all of my @-mentions.\n\n----\n\nSee: [indieweb.org/mentions](https://indieweb.org/mentions).\n\n![](/home/neil/Code/doubleloop-specs/tests/_output/debug/mentions.png)",
+        "Description": "----\n\nIn order to easily see when people have mentioned me\n\nAs an IndieWebber\n\nI want to have a page that contains all of my @-mentions.\n\n----\n\nA *mentions* page lists webmentions sent to a website. \n\nSee: [indieweb.org/mentions](https://indieweb.org/mentions).\n\n![](./images/mentions.png)",
         "FeatureElements": [
           {
             "Name": "Navigating to mentions page",
@@ -499,6 +499,6 @@ jsonPWrapper ({
   },
   "Configuration": {
     "SutName": "doubleloop.net",
-    "GeneratedOn": "16 April 2017 22:34:02"
+    "GeneratedOn": "16 April 2017 22:45:13"
   }
 });
