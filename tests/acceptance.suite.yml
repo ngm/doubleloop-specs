@@ -1,0 +1,21 @@
+# Codeception Test Suite Configuration
+
+# Suite for WordPress acceptance tests.
+# Perform tests using or simulating a browser.
+
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WPWebDriver
+    config:
+        WPWebDriver:
+            url: 'http://doubleloop.dev'
+            browser: chrome
+            port: 4444
+            restart: true
+            wait: 2
+            adminUsername: tester
+            adminPassword: p4ssw0rd!
+            adminUrl: /wp-admin
