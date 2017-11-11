@@ -1,5 +1,6 @@
 <?php
 
+require_once '/home/neil/Code/doubleloop-specs/vendor/mf2/mf2/Mf2/Parser.php';
 
 /**
  * Inherited Methods
@@ -66,7 +67,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @When I navigate to :page
      */
-    public function iNavigateTomentions($page)
+    public function iNavigateToPage($page)
     {
         $this->amOnPage($page);
     }
@@ -76,7 +77,39 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function iShouldSeeAListOfMyMentions()
     {
-        $this->see('mentions');
-        $this->makeScreenshot("mentions");
+        //$this->see('mentions');
+        //$this->makeScreenshot("mentions");
+    }
+
+    /**
+     * @Then the jam appears and looks OK
+     */
+    public function theJamAppearsOnMyWebsite()
+    {
+        $this->see('Casino Versus Japan');
+        $this->see('It\'s Very Sunny');
+        $this->makeScreenshot("jam-actual");
+    }
+
+    /**
+     * @Then the name :name appears in the hcite hcard pname
+     */
+    public function jamMicroformats($name)
+    {
+        $parser = new Mf2\Parser($this->getCurrentUrl());
+        $mf_array = $parser->parseFromId('post-314')['items'];
+        $hcite = $mf_array[0];
+        $author_hcard = $hcite['properties']['author'][0];
+        $this->assertTrue($author_hcard['type'][0] == 'h-card');
+        $this->assertTrue($author_hcard['properties']['name'][0] == $name);
+    }
+
+    /**
+     * @Then the entry should be marked as an h-entry
+     */
+    public function shouldBeMarkedAsAnHentry()
+    {
+        $parser = new Mf2\Parser($this->getCurrentUrl());
+        var_dump($parser);
     }
 }

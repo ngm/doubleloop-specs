@@ -130,6 +130,103 @@ jsonPWrapper ({
       }
     },
     {
+      "RelativeFolder": "B-Features/B.2-Publishing/2-PublishJam.feature",
+      "Feature": {
+        "Name": "B.2.2 - Publish jams",
+        "Description": "----\n\nAs a music fan,\n\nIn order to remember and share the tracks that I love,\n\nI want to be able to publish the tracks that I love.\n\n----\n\nThe microformats currently look like this...\n![Jam Microformats Screenshot](./jam-microformats.png)\n\nThe website output currently looks something like this...\n![Jam Screenshot](./jam-screenshot.png)",
+        "FeatureElements": [
+          {
+            "Name": "Post basic jam details",
+            "Slug": "post-basic-jam-details",
+            "Description": "",
+            "Steps": [
+              {
+                "Keyword": "When",
+                "NativeKeyword": "When ",
+                "Name": "I navigate to \"/2017/11/05/sunny-casino-versus-japan/\"",
+                "StepComments": [
+                  {
+                    "Text": "# TODO: visual diff on page screenshot to test that the visuals look OK."
+                  },
+                  {
+                    "Text": "# Ignore this for now - assuming jam has already been posted"
+                  },
+                  {
+                    "Text": "#When I publish a jam with the following details:"
+                  },
+                  {
+                    "Text": "#| artist          | track name      | playable-link                               |"
+                  },
+                  {
+                    "Text": "#| casino vs japan | it's very sunny | https://www.youtube.com/watch?v=zVwyB3nhwws |"
+                  }
+                ],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "Then",
+                "NativeKeyword": "Then ",
+                "Name": "the jam appears and looks OK",
+                "StepComments": [],
+                "AfterLastStepComments": []
+              }
+            ],
+            "Tags": [],
+            "Result": {
+              "WasExecuted": false,
+              "WasSuccessful": false
+            }
+          },
+          {
+            "Name": "Post jam with microformats",
+            "Slug": "post-jam-with-microformats",
+            "Description": "",
+            "Steps": [
+              {
+                "Keyword": "When",
+                "NativeKeyword": "When ",
+                "Name": "I navigate to \"/2017/11/05/sunny-casino-versus-japan/\"",
+                "StepComments": [
+                  {
+                    "Text": "# TODO: Test that the data seems OK."
+                  },
+                  {
+                    "Text": "# Ignoring posting for now - assuming jam has already been posted"
+                  }
+                ],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "Then",
+                "NativeKeyword": "Then ",
+                "Name": "the name \"Casino Versus Japan\" appears in the hcite author pname",
+                "StepComments": [],
+                "AfterLastStepComments": [
+                  {
+                    "Text": "# And the track name \"It's Very Sunny\" appears in the hcite pname"
+                  }
+                ]
+              }
+            ],
+            "Tags": [],
+            "Result": {
+              "WasExecuted": false,
+              "WasSuccessful": false
+            }
+          }
+        ],
+        "Result": {
+          "WasExecuted": false,
+          "WasSuccessful": false
+        },
+        "Tags": []
+      },
+      "Result": {
+        "WasExecuted": false,
+        "WasSuccessful": false
+      }
+    },
+    {
       "RelativeFolder": "B-Features/B.2-Publishing/1-PublishNote.feature",
       "Feature": {
         "Name": "B.2.1 - Publish Note",
@@ -356,6 +453,13 @@ jsonPWrapper ({
         "Inconclusive": 1
       },
       {
+        "Folder": "B-Features/B.2-Publishing/2-PublishJam.feature",
+        "Total": 2,
+        "Passing": 0,
+        "Failing": 0,
+        "Inconclusive": 2
+      },
+      {
         "Folder": "B-Features/B.2-Publishing/1-PublishNote.feature",
         "Total": 1,
         "Passing": 0,
@@ -435,6 +539,13 @@ jsonPWrapper ({
         "Inconclusive": 0
       },
       {
+        "Folder": "B-Features/B.2-Publishing/2-PublishJam.feature",
+        "Total": 0,
+        "Passing": 0,
+        "Failing": 0,
+        "Inconclusive": 0
+      },
+      {
         "Folder": "B-Features/B.2-Publishing/1-PublishNote.feature",
         "Total": 0,
         "Passing": 0,
@@ -485,20 +596,20 @@ jsonPWrapper ({
       }
     ],
     "Scenarios": {
-      "Total": 4,
+      "Total": 6,
       "Passing": 0,
       "Failing": 0,
-      "Inconclusive": 4
+      "Inconclusive": 6
     },
     "Features": {
-      "Total": 11,
+      "Total": 12,
       "Passing": 0,
       "Failing": 0,
-      "Inconclusive": 11
+      "Inconclusive": 12
     }
   },
   "Configuration": {
     "SutName": "doubleloop.net",
-    "GeneratedOn": "16 April 2017 23:30:30"
+    "GeneratedOn": "5 November 2017 16:35:36"
   }
 });
