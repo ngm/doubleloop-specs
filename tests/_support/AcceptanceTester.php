@@ -96,7 +96,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function jamMicroformats($name)
     {
-        $parser = new Mf2\Parser($this->getCurrentUrl());
+        $parser = new Mf2\Parser(file_get_contents($this->getCurrentUrl()));
         $mf_array = $parser->parseFromId('post-314')['items'];
         $hcite = $mf_array[0];
         $author_hcard = $hcite['properties']['author'][0];
@@ -109,7 +109,16 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function shouldBeMarkedAsAnHentry()
     {
-        $parser = new Mf2\Parser($this->getCurrentUrl());
-        var_dump($parser);
+        $parser = new Mf2\Parser($this->grabPageSource());
+        $h_entry = $parser->query("//*[contains(@class, 'h-entry')]")[0];
+        $this->assertNotNull($h_entry);
+    }
+
+    /**
+     * @Then the h-entry should contain a u-photo class
+     */
+    public function hEntryShouldContainUPhoto()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `the h-entry should contain a u-photo class` is not defined");
     }
 }
