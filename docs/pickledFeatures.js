@@ -133,8 +133,38 @@ jsonPWrapper ({
       "RelativeFolder": "B-Features/B.2-Publishing/3-PublishImage.feature",
       "Feature": {
         "Name": "Publish images",
-        "Description": "A photo is a post whose primary content is a photograph or other image, with an\noptional caption. With multiple photographs it becomes a multi-photo post.\nSee [indieweb.org/photo](https://indieweb.org/photo).\n\nThere are different approaches to posting photos. e.g.\n\n- As a note with a primary image\n- As an image, with text (caption) only following \n  - the image is the focus of the post, and text is in service of the image. \n\nI'm interested in the latter.\n\nSteps needed to get this to work:\n\n- create a new post\n- set kind to 'photo' (assumes have post kinds plugin installed)\n- set format to 'image'\n- 'Add Media' via the edit toolbar\n- select 'Link To' as 'Media File'\n- expand 'Advanced Options' and set Image CSS Class to 'u-photo'",
+        "Description": "A photo is a post whose primary content is a photograph or other image, with an\noptional caption. With multiple photographs it becomes a multi-photo post.\nSee [indieweb.org/photo](https://indieweb.org/photo).\n\nThere are different approaches to posting photos. e.g.\n\n- As a note with a primary image\n- As an image, with text (caption) only following \n  - the image is the focus of the post, and text is in service of the image. \n\nI'm interested in the latter.\n\nSteps needed to get this to work:\n\n- create a new post\n- set kind to 'photo' (assumes have post kinds plugin installed)\n- set format to 'image'\n- 'Add Media' via the edit toolbar\n- select 'Link To' as 'Media File'\n- expand 'Advanced Options' and set Image CSS Class to 'u-photo'\n\nTODO: noticed that some of my photo posts *are* appearing with u-photo already,\nwithout having to set the Image CSS Class.  Need to investigate what is different\nwith those photos. e.g. https://doubleloop.net/2017/04/08/rainbow-road-on-the-way-to-peckham/\nIf you look at how it's rendered, the noticable different is that it's displaying\nthe thumbnail gallery too.",
         "FeatureElements": [
+          {
+            "Name": "Publish a photo",
+            "Slug": "publish-a-photo",
+            "Description": "",
+            "Steps": [
+              {
+                "Keyword": "When",
+                "NativeKeyword": "When ",
+                "Name": "I navigate to \"/2017/11/11/rainbow-street/\"",
+                "StepComments": [],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "Then",
+                "NativeKeyword": "Then ",
+                "Name": "the photo entry should look correct",
+                "StepComments": [
+                  {
+                    "Text": "# Then it should look correct on various screen sizes!"
+                  }
+                ],
+                "AfterLastStepComments": []
+              }
+            ],
+            "Tags": [],
+            "Result": {
+              "WasExecuted": false,
+              "WasSuccessful": false
+            }
+          },
           {
             "Name": "Publish a photo and check microformats",
             "Slug": "publish-a-photo-and-check-microformats",
@@ -492,10 +522,10 @@ jsonPWrapper ({
     "Tags": [
       {
         "Tag": "@current",
-        "Total": 1,
+        "Total": 2,
         "Passing": 0,
         "Failing": 0,
-        "Inconclusive": 1
+        "Inconclusive": 2
       }
     ],
     "Folders": [
@@ -529,10 +559,10 @@ jsonPWrapper ({
       },
       {
         "Folder": "B-Features/B.2-Publishing/3-PublishImage.feature",
-        "Total": 1,
+        "Total": 2,
         "Passing": 0,
         "Failing": 0,
-        "Inconclusive": 1
+        "Inconclusive": 2
       },
       {
         "Folder": "B-Features/B.2-Publishing/2-PublishJam.feature",
@@ -685,10 +715,10 @@ jsonPWrapper ({
       }
     ],
     "Scenarios": {
-      "Total": 7,
+      "Total": 8,
       "Passing": 0,
       "Failing": 0,
-      "Inconclusive": 7
+      "Inconclusive": 8
     },
     "Features": {
       "Total": 13,
@@ -699,6 +729,6 @@ jsonPWrapper ({
   },
   "Configuration": {
     "SutName": "doubleloop.net",
-    "GeneratedOn": "12 November 2017 12:15:17"
+    "GeneratedOn": "12 November 2017 16:23:07"
   }
 });

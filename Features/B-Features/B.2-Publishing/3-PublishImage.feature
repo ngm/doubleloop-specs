@@ -28,6 +28,9 @@ with those photos. e.g. https://doubleloop.net/2017/04/08/rainbow-road-on-the-wa
 If you look at how it's rendered, the noticable different is that it's displaying
 the thumbnail gallery too.
 
+#![Screenshot](../images/3-PublishImage_Publish a photo.photo-entry.png)
+# Doesn't currently work, I think Pickles doesn't like it because spaces in filename.
+
 Scenario: Publish a photo
 When I navigate to "/2017/11/11/rainbow-street/"
 # Then it should look correct on various screen sizes!

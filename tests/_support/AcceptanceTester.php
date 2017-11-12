@@ -143,7 +143,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function thePhotoEntryShouldLookCorrect()
     {
+        // TODO: using whole page, as if you focus in on say #content,
+        // you don't see what's in the the '::before' pseudo-element.
+        // Need to a workaround.
         $this->dontSeeVisualChanges("photo-entry", "html");
-        //$this->makeScreenshot("photo-entry-captured");
     }
 }
