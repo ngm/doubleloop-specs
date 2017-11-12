@@ -130,6 +130,73 @@ jsonPWrapper ({
       }
     },
     {
+      "RelativeFolder": "B-Features/B.2-Publishing/3-PublishImage.feature",
+      "Feature": {
+        "Name": "Publish images",
+        "Description": "A photo is a post whose primary content is a photograph or other image, with an\noptional caption. With multiple photographs it becomes a multi-photo post.\nSee [indieweb.org/photo](https://indieweb.org/photo).\n\nThere are different approaches to posting photos. e.g.\n\n- As a note with a primary image\n- As an image, with text (caption) only following \n  - the image is the focus of the post, and text is in service of the image. \n\nI'm interested in the latter.\n\nSteps needed to get this to work:\n\n- create a new post\n- set kind to 'photo' (assumes have post kinds plugin installed)\n- set format to 'image'\n- 'Add Media' via the edit toolbar\n- select 'Link To' as 'Media File'\n- expand 'Advanced Options' and set Image CSS Class to 'u-photo'",
+        "FeatureElements": [
+          {
+            "Name": "Publish a photo and check microformats",
+            "Slug": "publish-a-photo-and-check-microformats",
+            "Description": "",
+            "Steps": [
+              {
+                "Keyword": "When",
+                "NativeKeyword": "When ",
+                "Name": "I navigate to \"/2017/11/11/rainbow-street/\"",
+                "StepComments": [],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "Then",
+                "NativeKeyword": "Then ",
+                "Name": "the entry should be marked as an h-entry",
+                "StepComments": [],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "And",
+                "NativeKeyword": "And ",
+                "Name": "the h-entry should have a name property \"Rainbow Street\"",
+                "StepComments": [],
+                "AfterLastStepComments": []
+              },
+              {
+                "Keyword": "And",
+                "NativeKeyword": "And ",
+                "Name": "the h-entry should contain a u-photo class",
+                "StepComments": [],
+                "AfterLastStepComments": [
+                  {
+                    "Text": "# And it should link to a larger version of the file?"
+                  },
+                  {
+                    "Text": "# what about the caption?"
+                  }
+                ]
+              }
+            ],
+            "Tags": [],
+            "Result": {
+              "WasExecuted": false,
+              "WasSuccessful": false
+            }
+          }
+        ],
+        "Result": {
+          "WasExecuted": false,
+          "WasSuccessful": false
+        },
+        "Tags": [
+          "@current"
+        ]
+      },
+      "Result": {
+        "WasExecuted": false,
+        "WasSuccessful": false
+      }
+    },
+    {
       "RelativeFolder": "B-Features/B.2-Publishing/2-PublishJam.feature",
       "Feature": {
         "Name": "B.2.2 - Publish jams",
@@ -422,7 +489,15 @@ jsonPWrapper ({
     }
   ],
   "Summary": {
-    "Tags": [],
+    "Tags": [
+      {
+        "Tag": "@current",
+        "Total": 1,
+        "Passing": 0,
+        "Failing": 0,
+        "Inconclusive": 1
+      }
+    ],
     "Folders": [
       {
         "Folder": "B-Features/B.5-Homepage/1-Homepage.feature",
@@ -447,6 +522,13 @@ jsonPWrapper ({
       },
       {
         "Folder": "B-Features/B.3-POSSEing/1-PosseNoteToTwitter.feature",
+        "Total": 1,
+        "Passing": 0,
+        "Failing": 0,
+        "Inconclusive": 1
+      },
+      {
+        "Folder": "B-Features/B.2-Publishing/3-PublishImage.feature",
         "Total": 1,
         "Passing": 0,
         "Failing": 0,
@@ -539,6 +621,13 @@ jsonPWrapper ({
         "Inconclusive": 0
       },
       {
+        "Folder": "B-Features/B.2-Publishing/3-PublishImage.feature",
+        "Total": 0,
+        "Passing": 0,
+        "Failing": 0,
+        "Inconclusive": 0
+      },
+      {
         "Folder": "B-Features/B.2-Publishing/2-PublishJam.feature",
         "Total": 0,
         "Passing": 0,
@@ -596,20 +685,20 @@ jsonPWrapper ({
       }
     ],
     "Scenarios": {
-      "Total": 6,
+      "Total": 7,
       "Passing": 0,
       "Failing": 0,
-      "Inconclusive": 6
+      "Inconclusive": 7
     },
     "Features": {
-      "Total": 12,
+      "Total": 13,
       "Passing": 0,
       "Failing": 0,
-      "Inconclusive": 12
+      "Inconclusive": 13
     }
   },
   "Configuration": {
     "SutName": "doubleloop.net",
-    "GeneratedOn": "5 November 2017 16:35:36"
+    "GeneratedOn": "12 November 2017 12:15:17"
   }
 });
