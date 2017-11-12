@@ -137,4 +137,13 @@ class AcceptanceTester extends \Codeception\Actor
         $h_entry = BarnabyWalters\Mf2\findMicroformatsByType($mf, 'h-entry')[0];
         $this->assertTrue(BarnabyWalters\Mf2\hasProp($h_entry, 'photo'));
     }
+
+    /**
+     * @Then the photo entry should look correct
+     */
+    public function thePhotoEntryShouldLookCorrect()
+    {
+        $this->dontSeeVisualChanges("photo-entry", "html");
+        //$this->makeScreenshot("photo-entry-captured");
+    }
 }

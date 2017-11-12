@@ -22,10 +22,16 @@ Steps needed to get this to work:
 - select 'Link To' as 'Media File'
 - expand 'Advanced Options' and set Image CSS Class to 'u-photo'
 
-#Scenario: Publish a photo
-#When I browse to the photo entry
-# it should look correct on various screen sizes!
-#Then the photo entry should look correct
+TODO: noticed that some of my photo posts *are* appearing with u-photo already,
+without having to set the Image CSS Class.  Need to investigate what is different
+with those photos. e.g. https://doubleloop.net/2017/04/08/rainbow-road-on-the-way-to-peckham/
+If you look at how it's rendered, the noticable different is that it's displaying
+the thumbnail gallery too.
+
+Scenario: Publish a photo
+When I navigate to "/2017/11/11/rainbow-street/"
+# Then it should look correct on various screen sizes!
+Then the photo entry should look correct
 
 
 Scenario: Publish a photo and check microformats

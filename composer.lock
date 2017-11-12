@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a513a2c001ede1d6c7b3a9450c039449",
-    "content-hash": "fae3306897428897286725601aecbd27",
+    "hash": "659180334672d901b9bbe7fdb710ac44",
+    "content-hash": "0266850680626cb2b480543081988393",
     "packages": [
         {
             "name": "barnabywalters/mf-cleaner",
@@ -350,6 +350,41 @@
                 "unit testing"
             ],
             "time": "2017-09-28 23:19:49"
+        },
+        {
+            "name": "codeception/visualception",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/VisualCeption.git",
+                "reference": "18acc0b5ca78c65511f7ed0337de16e52beae8ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/VisualCeption/zipball/18acc0b5ca78c65511f7ed0337de16e52beae8ac",
+                "reference": "18acc0b5ca78c65511f7ed0337de16e52beae8ac",
+                "shasum": ""
+            },
+            "require": {
+                "ext-imagick": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "module/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Visual regression tests for Codeception",
+            "homepage": "https://github.com/Codeception/VisualCeption",
+            "time": "2017-08-18 22:29:38"
         },
         {
             "name": "composer/ca-bundle",

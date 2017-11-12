@@ -8,9 +8,16 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - \Helper\Acceptance
-        - WPWebDriver
+        #- WPWebDriver # VisualCeption seems to require WebDriver.  Can live with this for now, but may need to revist.
+        - WebDriver
         - Asserts
+        - VisualCeption
     config:
+        WebDriver:
+            url: 'http://doubleloop.dev'
+            browser: phantomjs
+            port: 4444
+            window_size: maximize
         WPWebDriver:
             url: 'http://doubleloop.dev'
             browser: chrome
