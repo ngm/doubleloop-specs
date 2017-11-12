@@ -3,6 +3,7 @@
         "lucatume/wp-browser": "^1.19"
     },
     "require": {
-        "mf2/mf2": "~0.3"
+        "mf2/mf2": "~0.3",
+        "barnabywalters/mf-cleaner": "0.*"
     }
 }

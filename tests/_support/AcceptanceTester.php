@@ -1,6 +1,6 @@
 <?php
 
-require_once '/home/neil/Code/doubleloop-specs/vendor/mf2/mf2/Mf2/Parser.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Inherited Methods
@@ -110,8 +110,21 @@ class AcceptanceTester extends \Codeception\Actor
     public function shouldBeMarkedAsAnHentry()
     {
         $parser = new Mf2\Parser($this->grabPageSource());
-        $h_entry = $parser->query("//*[contains(@class, 'h-entry')]")[0];
+        //$h_entry = $parser->query("//*[contains(@class, 'h-entry')]")[0];
+        $mf = $parser->parse();
+        $h_entry = BarnabyWalters\Mf2\findMicroformatsByType($mf, 'h-entry');
         $this->assertNotNull($h_entry);
+    }
+
+    /**
+     * @Then the h-entry should have a name property :name
+     */
+    public function hEntryShouldHaveNameProperty($name)
+    {
+        $parser = new Mf2\Parser($this->grabPageSource());
+        $mf = $parser->parse();
+        $h_entry = BarnabyWalters\Mf2\findMicroformatsByType($mf, 'h-entry')[0];
+        $this->assertEquals(BarnabyWalters\Mf2\getPlaintext($h_entry, 'name'), $name);
     }
 
     /**
@@ -119,6 +132,9 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function hEntryShouldContainUPhoto()
     {
-        throw new \Codeception\Exception\Incomplete("Step `the h-entry should contain a u-photo class` is not defined");
+        $parser = new Mf2\Parser($this->grabPageSource());
+        $mf = $parser->parse();
+        $h_entry = BarnabyWalters\Mf2\findMicroformatsByType($mf, 'h-entry')[0];
+        $this->assertTrue(BarnabyWalters\Mf2\hasProp($h_entry, 'photo'));
     }
 }

@@ -13,6 +13,15 @@ There are different approaches to posting photos. e.g.
 
 I'm interested in the latter.
 
+Steps needed to get this to work:
+
+- create a new post
+- set kind to 'photo' (assumes have post kinds plugin installed)
+- set format to 'image'
+- 'Add Media' via the edit toolbar
+- select 'Link To' as 'Media File'
+- expand 'Advanced Options' and set Image CSS Class to 'u-photo'
+
 #Scenario: Publish a photo
 #When I browse to the photo entry
 # it should look correct on various screen sizes!
@@ -22,9 +31,7 @@ I'm interested in the latter.
 Scenario: Publish a photo and check microformats
 When I navigate to "/2017/11/11/rainbow-street/"
 Then the entry should be marked as an h-entry
+And the h-entry should have a name property "Rainbow Street"
 And the h-entry should contain a u-photo class
-# h-entry, with a u-photo in there somewhere.
-# calum has a p-name and a p-image
-# doesn't seem to be too much consensus around how to markup the caption in an image post.
-# marty mcguire also has p-name for the caption
-# e-content also in there
+# And it should link to a larger version of the file?
+# what about the caption?
