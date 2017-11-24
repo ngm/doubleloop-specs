@@ -14,12 +14,12 @@ modules:
         - VisualCeption
     config:
         WebDriver:
-            url: 'http://doubleloop.dev'
+            url: 'http://doubleloop.dev:8080'
             browser: phantomjs
             port: 4444
             window_size: maximize
         WPWebDriver:
-            url: 'http://doubleloop.dev'
+            url: 'http://doubleloop.dev:8080'
             browser: chrome
             port: 4444
             restart: true
