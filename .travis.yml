@@ -24,10 +24,10 @@ before_script:
   - chmod +x wp-cli.phar
   - ./wp-cli.phar core download --allow-root --path=wordpress
   - ./wp-cli.phar core config --allow-root --dbname=doubleloop_dev --dbuser=travis --dbhost=localhost --path=wordpress
-  - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev --title=WordPress --path=wordpress
+  - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev:4040 --title=WordPress --path=wordpress
   - git clone https://github.com/ngm/doublepress.git wordpress/wp-content/themes/doublepress
   - ./wp-cli.phar theme activate doublepress --path=wordpress
-  - php -S doubleloop.dev:8080 -t wordpress &
+  - php -S doubleloop.dev:4040 -t wordpress &
   - phantomjs --webdriver 4444 &
 
 script:
