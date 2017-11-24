@@ -27,7 +27,8 @@ before_script:
   - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev --title=WordPress --path=wordpress
   - git clone https://github.com/ngm/doublepress.git wordpress/wp-content/themes/doublepress
   - ./wp-cli.phar theme activate doublepress --path=wordpress
+	- php -S doubleloop.dev:8080 -t wordpress &
+  - phantomjs --webdriver 4444 &
 
 script:
-  - phantomjs --webdriver 4444 &
   - php vendor/codeception/codeception/codecept run acceptance
