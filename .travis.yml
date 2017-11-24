@@ -28,4 +28,6 @@ before_script:
   - git clone https://github.com/ngm/doublepress.git wordpress/wp-content/themes/doublepress
   - ./wp-cli.phar theme activate doublepress --path=wordpress
 
-script: php vendor/codeception/codeception/codecept run acceptance
+script:
+  - ls
+  - php vendor/codeception/codeception/codecept run acceptance
