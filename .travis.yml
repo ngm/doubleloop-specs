@@ -29,5 +29,5 @@ before_script:
   - ./wp-cli.phar theme activate doublepress --path=wordpress
 
 script:
-  - ls
+  - phantomjs --webdriver 4444
   - php vendor/codeception/codeception/codecept run acceptance
