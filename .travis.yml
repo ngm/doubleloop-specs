@@ -12,6 +12,9 @@ addons:
     
 before_install:
   - mysql -e 'CREATE DATABASE doubleloop_dev;'
+  
+install:
+  - composer install
     
 before_script:
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
