@@ -5,3 +5,16 @@ php:
   
 services:
   - mysql
+
+addons:
+  hosts:
+    - doubleloop.dev 
+    
+before_script:
+  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  - chmod +x wp-cli.phar
+  - ./wp-cli.phar core download --allow-root --path=wordpress
+  - ./wp-cli.phar core config --allow-root --dbname=wordpress --dbuser=travis --dbhost=localhost --path=wordpress
+  - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev --title=WordPress --path=wordpress
+  - git clone git@github.com:ngm/doublepress.git wordpress/wp-content/themes/doublepress
+  - ./wp-cli.phar theme activate doublepress --path=wordpress
