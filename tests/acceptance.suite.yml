@@ -9,17 +9,24 @@ modules:
     enabled:
         - \Helper\Acceptance
         #- WPWebDriver # VisualCeption seems to require WebDriver.  Can live with this for now, but may need to revist.
+        - WPDb
         - WebDriver
         - Asserts
         - VisualCeption
     config:
+        WPDb:
+            url: 'http://doubleloop.dev:4040'
+            dsn: 'mysql:host=localhost;dbname=doubleloop_ci'
+            user: %MYSQL_USER%
+            password: %MYSQL_PASSWORD%
+            cleanup: false
         WebDriver:
-            url: 'http://doubleloop.dev:8080'
+            url: 'http://doubleloop.dev:4040'
             browser: phantomjs
             port: 4444
             window_size: maximize
         WPWebDriver:
-            url: 'http://doubleloop.dev:8080'
+            url: 'http://doubleloop.dev:4040'
             browser: chrome
             port: 4444
             restart: true

@@ -21,6 +21,8 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    var $post_id = -1;
+
    /**
     * Define custom actions here
     */
@@ -147,5 +149,29 @@ class AcceptanceTester extends \Codeception\Actor
         // you don't see what's in the the '::before' pseudo-element.
         // Need to a workaround.
         $this->dontSeeVisualChanges("photo-entry", "html");
+    }
+
+    /**
+     * @Given I have created a note on my site
+     */
+    public function haveCreatedANoteOnMySite()
+    {
+ 		$this->post_id = $this->havePostInDatabase( [ 'post_name' => 'foo', 'post_content' => 'hello world!', 'post_title' => '' ] );
+    }
+
+    /**
+     * @When a visitor views the note
+     */
+    public function visitorViewsTheNote()
+    {
+        $this->amOnPage( '/?p=' . $this->post_id );
+    }
+
+    /**
+     * @Then it appears correctly as a note
+     */
+    public function appearsCorrectlyAsANote()
+    {
+        $this->makeScreenshot('note-view');
     }
 }

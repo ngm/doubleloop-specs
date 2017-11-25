@@ -1,4 +1,3 @@
-@current
 Feature: Publish images
   
 A photo is a post whose primary content is a photograph or other image, with an

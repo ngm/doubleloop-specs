@@ -1,3 +1,4 @@
+@current
 Feature: B.2.1 - Publish Note
 
 ----
@@ -17,7 +18,7 @@ See: [indieweb.org/note](https://indieweb.org/note).
 
 Scenario: Publish note
 
-Given I am logged in to my site
-When I publish a note with the text 'This is my note!'
+Given I have created a note on my site
+When a visitor views the note
 Then it appears correctly as a note
-And it is marked up correctly as a note
+#And it is marked up correctly as a note
