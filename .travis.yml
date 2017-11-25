@@ -29,6 +29,7 @@ before_script:
   - ./wp-cli.phar theme activate doublepress --path=wordpress
   - php -S doubleloop.dev:4040 -t wordpress &
   - phantomjs --webdriver 4444 &
+  - sleep 5
 
 script:
   - php vendor/codeception/codeception/codecept run acceptance
