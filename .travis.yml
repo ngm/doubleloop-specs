@@ -14,7 +14,7 @@ addons:
     - doubleloop.dev 
     
 before_install:
-  - mysql -e 'CREATE DATABASE doubleloop_dev;'
+  - mysql -e 'CREATE DATABASE doubleloop_ci;'
   - pear config-set preferred_state beta
   - pecl channel-update pecl.php.net
   - yes | pecl install imagick
