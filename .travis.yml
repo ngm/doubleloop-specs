@@ -22,8 +22,8 @@ before_install:
   
 install:
 # install all of the dependencies
-  - composer install
   - yes | pecl install imagick
+  - composer install
   # Setup Apache / enable php-fpm
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
