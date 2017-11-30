@@ -22,6 +22,8 @@ before_install:
   
 install:
 # install all of the dependencies
+  - composer install
+  - yes | pecl install imagick
   # Setup Apache / enable php-fpm
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
@@ -32,7 +34,7 @@ install:
   - sudo chown -R travis:travis /var/lib/apache2/fastcgi
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/doubleloop.dev.conf
-  - cd wordpress
+  - mkdir wordpress && cd wordpress
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/doubleloop.dev.conf
   - sudo a2ensite doubleloop.dev
   - sudo a2enmod rewrite        
@@ -41,8 +43,6 @@ install:
   # setup mysql
   - mysql -e 'CREATE DATABASE doubleloop_ci;'
   # setup wordpress
-  - composer install
-  - yes | pecl install imagick
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - chmod +x wp-cli.phar
   - ./wp-cli.phar core download --allow-root --path=wordpress
