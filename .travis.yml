@@ -14,31 +14,49 @@ addons:
     - doubleloop.dev 
     
 before_install:
-  # execute all of the commands which need to be executed 
-  # before installing dependencies
+# execute all of the commands which need to be executed 
+# before installing dependencies
   - pear config-set preferred_state beta
   - pecl channel-update pecl.php.net
+  - sudo apt-get update
   
 install:
-  # install all of the dependencies
+# install all of the dependencies
+  # Setup Apache / enable php-fpm
+  - sudo apt-get install apache2 libapache2-mod-fastcgi
+  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
+  - sudo a2enmod rewrite actions fastcgi alias
+  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars
+  - sudo chown -R travis:travis /var/lib/apache2/fastcgi
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/doubleloop.dev.conf
+  - cd wordpress
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/doubleloop.dev.conf
+  - sudo a2ensite doubleloop.dev
+  - sudo a2enmod rewrite        
+  - sudo service apache2 reload
+  - sudo service apache2 restart "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/doubleloop.dev.conf
+  # setup mysql
+  - mysql -e 'CREATE DATABASE doubleloop_ci;'
+  # setup wordpress
   - composer install
   - yes | pecl install imagick
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - chmod +x wp-cli.phar
-    
-before_script:
-  # execute all of the commands which need to be executed 
-  # before running actual tests
-  - mysql -e 'CREATE DATABASE doubleloop_ci;'
   - ./wp-cli.phar core download --allow-root --path=wordpress
   - ./wp-cli.phar core config --allow-root --dbname=doubleloop_ci --dbuser=travis --dbhost=localhost --path=wordpress
-  - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev:4040 --title=WordPress --path=wordpress
+  - ./wp-cli.phar core install --allow-root --admin_name=admin --admin_password=admin --admin_email=admin@example.com --url=http://doubleloop.dev --title=WordPress --path=wordpress
   - git clone https://github.com/ngm/doublepress.git wordpress/wp-content/themes/doublepress
   - ./wp-cli.phar theme activate doublepress --path=wordpress
-  - php -S doubleloop.dev:4040 -t wordpress &
+    
+before_script:
+# execute all of the commands which need to be executed 
+# before running actual tests
   - phantomjs --webdriver 4444 &
   - sleep 5
 
 script:
-  # execute all of the commands which should make the build pass or fail
+# execute all of the commands which should make the build pass or fail
   - php vendor/codeception/codeception/codecept run acceptance
