@@ -44,14 +44,6 @@ class AcceptanceTester extends \Codeception\Actor
     }
 
     /**
-     * @Then it appears correctly as a note
-     */
-    public function itAppearsCorrectlyAsANote()
-    {
-        throw new \Codeception\Exception\Incomplete("Step `it appears correctly as a note` is not defined");
-    }
-
-    /**
      * @Then it is marked up correctly as a note
      */
     public function itIsMarkedUpCorrectlyAsANote()
@@ -156,7 +148,11 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function haveCreatedANoteOnMySite()
     {
+        $kind_note_term_id = 18;
+        $post_format_aside_term_id = 33;
  		$this->post_id = $this->havePostInDatabase( [ 'post_name' => 'foo', 'post_content' => 'hello world!', 'post_title' => '' ] );
+        $this->haveTermRelationshipInDatabase($this->post_id, $kind_note_term_id);
+        $this->haveTermRelationshipInDatabase($this->post_id, $post_format_aside_term_id);
     }
 
     /**
