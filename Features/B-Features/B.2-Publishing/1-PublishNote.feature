@@ -1,4 +1,3 @@
-@current
 Feature: B.2.1 - Publish Note
 
 ----

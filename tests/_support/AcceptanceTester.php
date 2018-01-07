@@ -16,16 +16,16 @@ require __DIR__ . '/../../vendor/autoload.php';
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
     var $post_id = -1;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Define custom actions here
+     */
 
     /**
      * @Given I am logged in to my site
@@ -150,7 +150,7 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $kind_note_term_id = 18;
         $post_format_aside_term_id = 33;
- 		$this->post_id = $this->havePostInDatabase( [ 'post_name' => 'foo', 'post_content' => 'hello world!', 'post_title' => '' ] );
+        $this->post_id = $this->havePostInDatabase( [ 'post_name' => 'foo', 'post_content' => 'hello world!', 'post_title' => '' ] );
         $this->haveTermRelationshipInDatabase($this->post_id, $kind_note_term_id);
         $this->haveTermRelationshipInDatabase($this->post_id, $post_format_aside_term_id);
     }
@@ -169,5 +169,117 @@ class AcceptanceTester extends \Codeception\Actor
     public function appearsCorrectlyAsANote()
     {
         $this->makeScreenshot('note-view');
+    }
+
+    /**
+     * @Given I have set up my website to include rels
+     */
+    public function iHaveSetUpMyWebsiteToIncludeRels()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I have set up my website to include rels` is not defined");
+    }
+
+    /**
+     * @When I log in to the indieweb:num1org wiki
+     */
+    public function iLogInToTheIndieweborgWiki($num1)
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I log in to the indieweb:num1org wiki` is not defined");
+    }
+
+    /**
+     * @Then I am authenticated into the indieweb:num1org wiki
+     */
+    public function iAmAuthenticatedIntoTheIndieweborgWiki($num1)
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I am authenticated into the indieweb:num1org wiki` is not defined");
+    }
+
+    /**
+     * @Then the name :arg1 appears in the hcite author pname
+     */
+    public function theNameAppearsInTheHciteAuthorPname($arg1)
+    {
+        throw new \Codeception\Exception\Incomplete("Step `the name :arg1 appears in the hcite author pname` is not defined");
+    }
+
+    /**
+     * @When I publish a note to my site
+     */
+    public function iPublishANoteToMySite()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I publish a note to my site` is not defined");
+    }
+
+    /**
+     * @Then it is syndicated to Twitter
+     */
+    public function itIsSyndicatedToTwitter()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `it is syndicated to Twitter` is not defined");
+    }
+
+    /**
+     * @Given there are no posts
+     */
+    public function thereAreNoPosts()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `there are no posts` is not defined");
+    }
+
+    /**
+     * @When I navigate to the random page URL
+     */
+    public function iNavigateToTheRandomPageURL()
+    {
+        $this->amOnPage('/random');
+    }
+
+    /**
+     * @Then I should be alerted that there are no posts
+     */
+    public function iShouldBeAlertedThatThereAreNoPosts()
+    {
+        $this->see("This site has no posts!");
+    }
+
+    /**
+     * @Given there is one post
+     */
+    public function thereIsOnePost()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `there is one post` is not defined");
+    }
+
+    /**
+     * @Then I should be shown that one post
+     */
+    public function iShouldBeShownThatOnePost()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I should be shown that one post` is not defined");
+    }
+
+    /**
+     * @Given there are multiple posts
+     */
+    public function thereAreMultiplePosts()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `there are multiple posts` is not defined");
+    }
+
+    /**
+     * @When I navigate to the random page URL multiple times
+     */
+    public function iNavigateToTheRandomPageURLMultipleTimes()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I navigate to the random page URL multiple times` is not defined");
+    }
+
+    /**
+     * @Then I should see a statistically random spread of those posts
+     */
+    public function iShouldSeeAStatisticallyRandomSpreadOfThosePosts()
+    {
+        throw new \Codeception\Exception\Incomplete("Step `I should see a statistically random spread of those posts` is not defined");
     }
 }
